@@ -1,0 +1,11 @@
+# Import cache
+.import/
+
+# Binaries
+bin/
+build/
+lib/
+
+#my ignored files
+art/Screenshot*
+art/cover image*

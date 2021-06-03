@@ -1,0 +1,489 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://art/Gamepixies-8MO6n.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/Godot Link.gd" type="Script" id=2]
+[ext_resource path="res://scripts/Jam Link.gd" type="Script" id=3]
+[ext_resource path="res://scripts/Abstraction Link.gd" type="Script" id=4]
+[ext_resource path="res://scripts/jsfxr Link.gd" type="Script" id=5]
+[ext_resource path="res://scripts/Font Link.gd" type="Script" id=6]
+[ext_resource path="res://scripts/Art Link.gd" type="Script" id=7]
+[ext_resource path="res://scripts/Code Tutorial Link.gd" type="Script" id=8]
+[ext_resource path="res://scripts/Shader Tutorial Link.gd" type="Script" id=9]
+[ext_resource path="res://scripts/Animation Tutorial Link.gd" type="Script" id=10]
+[ext_resource path="res://scripts/Advice Link.gd" type="Script" id=11]
+[ext_resource path="res://scripts/Menu Button.gd" type="Script" id=12]
+[ext_resource path="res://art/Button.png" type="Texture" id=13]
+[ext_resource path="res://art/arrow.png" type="Texture" id=14]
+[ext_resource path="res://scenes/Checkpoint.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/Orange.tscn" type="PackedScene" id=16]
+[ext_resource path="res://art/checkpoint.wav" type="AudioStream" id=17]
+[ext_resource path="res://scripts/Promo Link.gd" type="Script" id=18]
+
+[sub_resource type="DynamicFont" id=1]
+size = 56
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 56
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 56
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 48
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 40
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Shader" id=6]
+code = "shader_type canvas_item;
+
+uniform vec4 new_color : hint_color;
+
+void fragment() {
+	COLOR = texture(TEXTURE, UV);
+	COLOR.rgb = new_color.rgb
+	;
+}"
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 6 )
+shader_param/new_color = Color( 0.745098, 0.0705882, 0.313726, 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 40
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[node name="Credits" type="Node"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.458824, 0.27451, 0.396078, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 57.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer"]
+margin_left = 177.0
+margin_right = 846.0
+margin_bottom = 57.0
+
+[node name="Label" type="Label" parent="VBoxContainer/CenterContainer/HBoxContainer"]
+margin_right = 208.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.639216, 0, 1 )
+text = "Game by"
+
+[node name="Label2" type="Label" parent="VBoxContainer/CenterContainer/HBoxContainer"]
+margin_left = 212.0
+margin_right = 669.0
+margin_bottom = 57.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0, 0.301961, 1 )
+text = " Michael Bufardeci"
+script = ExtResource( 18 )
+
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 61.0
+margin_right = 1024.0
+margin_bottom = 118.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer2"]
+margin_left = 45.0
+margin_right = 979.0
+margin_bottom = 57.0
+
+[node name="Label" type="Label" parent="VBoxContainer/CenterContainer2/HBoxContainer"]
+margin_right = 204.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0.639216, 0, 1 )
+text = "Made in "
+
+[node name="Label2" type="Label" parent="VBoxContainer/CenterContainer2/HBoxContainer"]
+margin_left = 208.0
+margin_right = 354.0
+margin_bottom = 57.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0, 0.301961, 1 )
+text = "Godot"
+script = ExtResource( 2 )
+
+[node name="Label3" type="Label" parent="VBoxContainer/CenterContainer2/HBoxContainer"]
+margin_left = 358.0
+margin_right = 581.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0.639216, 0, 1 )
+text = " for the "
+
+[node name="Label4" type="Label" parent="VBoxContainer/CenterContainer2/HBoxContainer"]
+margin_left = 585.0
+margin_right = 934.0
+margin_bottom = 57.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0, 0.301961, 1 )
+text = "Go Godot Jam"
+script = ExtResource( 3 )
+
+[node name="CenterContainer4" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 122.0
+margin_right = 1024.0
+margin_bottom = 179.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer4"]
+margin_left = 264.0
+margin_right = 760.0
+margin_bottom = 57.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/CenterContainer4/HBoxContainer"]
+margin_right = 297.0
+margin_bottom = 57.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0, 0.301961, 1 )
+text = "Abstraction"
+script = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="VBoxContainer/CenterContainer4/HBoxContainer"]
+margin_left = 301.0
+margin_right = 496.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0.639216, 0, 1 )
+text = " - Music"
+
+[node name="CenterContainer5" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 183.0
+margin_right = 1024.0
+margin_bottom = 240.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer5"]
+margin_left = 232.0
+margin_right = 791.0
+margin_bottom = 57.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/CenterContainer5/HBoxContainer"]
+margin_right = 132.0
+margin_bottom = 57.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0, 0.301961, 1 )
+text = "jsfxr"
+script = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="VBoxContainer/CenterContainer5/HBoxContainer"]
+margin_left = 136.0
+margin_right = 559.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0.639216, 0, 1 )
+text = " - Sound Effects"
+
+[node name="CenterContainer6" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 244.0
+margin_right = 1024.0
+margin_bottom = 301.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer6"]
+margin_left = 241.0
+margin_right = 783.0
+margin_bottom = 57.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/CenterContainer6/HBoxContainer"]
+margin_right = 363.0
+margin_bottom = 57.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0, 0.301961, 1 )
+text = "heaven castro"
+script = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="VBoxContainer/CenterContainer6/HBoxContainer"]
+margin_left = 367.0
+margin_right = 542.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0.639216, 0, 1 )
+text = " - Font"
+
+[node name="CenterContainer7" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 305.0
+margin_right = 1024.0
+margin_bottom = 362.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer7"]
+margin_left = 225.0
+margin_right = 799.0
+margin_bottom = 57.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/CenterContainer7/HBoxContainer"]
+margin_right = 137.0
+margin_bottom = 57.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0, 0.301961, 1 )
+text = "0x72"
+script = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="VBoxContainer/CenterContainer7/HBoxContainer"]
+margin_left = 141.0
+margin_right = 574.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0.639216, 0, 1 )
+text = " - Art Inspiration"
+
+[node name="CenterContainer8" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 366.0
+margin_right = 1024.0
+margin_bottom = 423.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer8"]
+margin_left = 131.0
+margin_right = 892.0
+margin_bottom = 57.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/CenterContainer8/HBoxContainer"]
+margin_right = 315.0
+margin_bottom = 57.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0, 0.301961, 1 )
+text = "KidsCanCode"
+script = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="VBoxContainer/CenterContainer8/HBoxContainer"]
+margin_left = 319.0
+margin_right = 761.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0.639216, 0, 1 )
+text = " - Godot Tutorials"
+
+[node name="CenterContainer9" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 427.0
+margin_right = 1024.0
+margin_bottom = 484.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer9"]
+margin_left = 67.0
+margin_right = 956.0
+margin_bottom = 57.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/CenterContainer9/HBoxContainer"]
+margin_right = 439.0
+margin_bottom = 57.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0, 0.301961, 1 )
+text = "PlayWithFurcifier"
+script = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="VBoxContainer/CenterContainer9/HBoxContainer"]
+margin_left = 443.0
+margin_right = 889.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0.639216, 0, 1 )
+text = " - Shader Tutorial"
+
+[node name="CenterContainer10" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 488.0
+margin_right = 1024.0
+margin_bottom = 545.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer10"]
+margin_left = 167.0
+margin_right = 857.0
+margin_bottom = 57.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/CenterContainer10/HBoxContainer"]
+margin_right = 185.0
+margin_bottom = 57.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0, 0.301961, 1 )
+text = "Vimlark"
+script = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="VBoxContainer/CenterContainer10/HBoxContainer"]
+margin_left = 189.0
+margin_right = 690.0
+margin_bottom = 57.0
+rect_pivot_offset = Vector2( 973.174, 284.821 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0.639216, 0, 1 )
+text = " - Animation Tutorial"
+
+[node name="CenterContainer11" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 549.0
+margin_right = 1024.0
+margin_bottom = 606.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer11"]
+margin_left = 232.0
+margin_right = 792.0
+margin_bottom = 57.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/CenterContainer11/HBoxContainer"]
+margin_right = 338.0
+margin_bottom = 57.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0, 0.301961, 1 )
+text = "Microman900"
+script = ExtResource( 11 )
+
+[node name="Label" type="Label" parent="VBoxContainer/CenterContainer11/HBoxContainer"]
+margin_left = 342.0
+margin_right = 560.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0.639216, 0, 1 )
+text = " - Advice"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 340.0
+margin_bottom = 58.0
+rect_scale = Vector2( 0.5, 0.5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+margin_right = 338.0
+margin_bottom = 56.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+texture = ExtResource( 13 )
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer"]
+margin_left = 114.0
+margin_top = 3.0
+margin_right = 223.0
+margin_bottom = 52.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 0.945098, 0.909804, 1 )
+text = "Menu"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 50.7187
+margin_top = 152.325
+margin_right = 203.719
+margin_bottom = 193.325
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.745098, 0.0705882, 0.313726, 1 )
+text = "Click me!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource( 7 )
+margin_left = 240.18
+margin_top = 138.058
+margin_right = 272.18
+margin_bottom = 170.058
+rect_rotation = 69.7
+texture = ExtResource( 14 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+material = SubResource( 7 )
+margin_left = 233.437
+margin_top = 200.986
+margin_right = 265.437
+margin_bottom = 232.986
+rect_rotation = 123.9
+texture = ExtResource( 14 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 820.0
+margin_top = 157.0
+margin_right = 1000.0
+margin_bottom = 286.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 0.423529, 0.141176, 1 )
+text = "Thanks for playing!"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Orange" parent="." instance=ExtResource( 16 )]
+position = Vector2( 129, 289 )
+scale = Vector2( 8, 8 )
+
+[node name="Checkpoint" parent="." instance=ExtResource( 15 )]
+position = Vector2( 940, 544 )
+scale = Vector2( 4, 4 )
+
+[node name="Chime" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+autoplay = true
