@@ -4,7 +4,7 @@ var count := 0
 var reset_count := 0
 
 func update_text():
-	text = str(count)
+	text = str(count) + " / 18"
 
 func collect():
 	count += 1

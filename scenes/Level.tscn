@@ -3585,14 +3585,14 @@ __meta__ = {
 "score",
 ]]
 margin_left = 68.0
-margin_right = 87.0
+margin_right = 176.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 46 )
 custom_colors/font_color = Color( 1, 0.639216, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-text = "0"
+text = "0 / 18"
 valign = 1
 script = ExtResource( 8 )
 __meta__ = {
