@@ -64,7 +64,7 @@ func _physics_process(delta):
 		#set flag so we can check next frame
 		coyote = is_on_floor()
 		#check if we're jumping
-		if Input.is_action_pressed("ui_up"):
+		if Input.is_action_just_pressed("ui_up"):
 			#if we're on the floor, jump
 			if is_on_floor():
 				move.y = -jump_speed
