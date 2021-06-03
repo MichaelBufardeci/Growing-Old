@@ -189,7 +189,6 @@ limit_bottom = 608
 limit_smoothed = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
-smoothing_speed = 10.0
 
 [node name="CoyoteTime" type="Timer" parent="."]
 wait_time = 0.05
