@@ -10,3 +10,4 @@ lib/
 art/Screenshot*
 art/cover image*
 export_presets.cfg
+*.bat
