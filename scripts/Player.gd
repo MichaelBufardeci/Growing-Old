@@ -58,9 +58,9 @@ func _physics_process(delta):
 			if coyote:
 				$CoyoteTime.start()
 			#move camera to better see where we're headed
-			$Camera2D.position.y = lerp($Camera2D.position.y, 16, acceleration)
-		else:
 			$Camera2D.position.y = lerp($Camera2D.position.y, 0, acceleration)
+		else:
+			$Camera2D.position.y = lerp($Camera2D.position.y, -16, acceleration)
 		#set flag so we can check next frame
 		coyote = is_on_floor()
 		#check if we're jumping
