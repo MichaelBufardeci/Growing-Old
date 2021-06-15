@@ -17,6 +17,8 @@ func _process(delta):
 		get_tree().call_group("score", "reset")
 		get_tree().call_group("coils", "reset")
 		get_tree().call_group("bolts", "queue_free")
+		$HUD/DeathTimer.stop()
+		$HUD/CenterContainer/Respawn.visible = false
 		$Music.volume_db = normal_volume
 	#debug stuff
 	if OS.is_debug_build():
@@ -40,6 +42,7 @@ func _process(delta):
 
 func quiet():
 	$Music.volume_db = quiet_volume
+	$HUD/DeathTimer.start()
 
 func victory():
 	victory = true
@@ -48,3 +51,6 @@ func victory():
 func _on_EasterEgg_body_exited(body):
 	if $HUD/HBoxContainer/Score.count == 18:
 		body.call("easter_egg")
+
+func _on_DeathTimer_timeout():
+	$HUD/CenterContainer/Respawn.visible = true
