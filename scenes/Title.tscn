@@ -383,6 +383,7 @@ playing = true
 [node name="Adult" type="AnimatedSprite" parent="."]
 position = Vector2( 512, 592 )
 frames = SubResource( 7 )
+frame = 1
 playing = true
 
 [node name="Elderly" type="AnimatedSprite" parent="."]
